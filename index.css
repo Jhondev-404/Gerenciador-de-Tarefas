@@ -1,0 +1,112 @@
+@tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+     
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+     
+        --primary: 262.1 83.3% 57.8%; /* Indigo-ish Purple */
+        --primary-foreground: 210 40% 98%;
+     
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+     
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+     
+        --accent: 180 70% 92%; /* Lighter Cyan/Teal for accents */
+        --accent-foreground: 180 50% 20%;
+     
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 262.1 83.3% 57.8%; /* Ring color matches primary */
+     
+        --radius: 0.75rem; /* Slightly more rounded corners */
+      }
+     
+      .dark {
+        --background: 222.2 47.4% 11.2%; /* Dark Blue/Gray */
+        --foreground: 210 40% 98%;
+
+        --card: 222.2 47.4% 14.2%; /* Slightly lighter dark for cards */
+        --card-foreground: 210 40% 98%;
+     
+        --popover: 222.2 47.4% 11.2%;
+        --popover-foreground: 210 40% 98%;
+     
+        --primary: 262.1 75% 65%; /* Brighter purple for dark mode */
+        --primary-foreground: 210 40% 98%;
+     
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+     
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+     
+        --accent: 180 60% 30%; /* Darker Cyan/Teal for accents */
+        --accent-foreground: 210 40% 98%;
+     
+        --destructive: 0 72.2% 50.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 27.5%; /* Darker border */
+        --input: 217.2 32.6% 27.5%; /* Darker input */
+        --ring: 262.1 75% 65%; /* Ring color matches dark primary */
+      }
+    }
+     
+    @layer base {
+      * {
+        @apply border-border;
+      }
+      body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', sans-serif;
+      }
+      
+      /* Custom scrollbar for a more modern look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        @apply bg-background/50 dark:bg-gray-800/50;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        @apply bg-primary/50 dark:bg-primary/70;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        @apply bg-primary dark:bg-primary;
+      }
+
+      /* Glassmorphism attempt for modals/dialogs */
+      .glassmorphic {
+        background: rgba(255, 255, 255, 0.1); /* Light mode base */
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        border: 1px solid rgba(209, 213, 219, 0.3); /* Light border */
+      }
+      .dark .glassmorphic {
+        background: rgba(31, 41, 55, 0.2); /* Dark mode base (gray-800 with alpha) */
+        border: 1px solid rgba(75, 85, 99, 0.3); /* Dark border (gray-600 with alpha) */
+      }
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif; /* Or a more decorative font for headings */
+    }
